@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang='en' ng-app='calculatorApp'>
+<head>
+<meta charset='utf-8'>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+<script src="calculator.js"></script>
+<link rel="styleSheet" href="stylesheet.css">
+<link rel="styleSheet" media="only screen and(max-width:768px) and (orientation:landscape)" href="stylesheet.css">
+<link rel="styleSheet" media="only screen and (max-width:768px) and (orientation:portrait)" href="stylesheet.css">
+</head>
+<body ng-controller='calculatorCntrl'>
+	<div class="main-container">
+		<div class="container">
+			<h3>Last calculations</h3>
+			<div class="calc" ng-repeat="calc in lastCalculations track by $index">
+				<p ng-bind="calc" class="formWidth fonts"></p>
+			</div>
+		</div>
+		<div class="container">
+			<form name="calculator">
+				<table class="formWidth">
+					<tr>
+						<td colspan="4">
+							<input id="calculationResult" autofocus autocomplete="off" ng-readonly="readonly" class="formWidth fonts result" ng-model="result" 	ng-keydown='checkValue($event)'>
+						</td>
+					</tr>
+					<tr>
+						<td><input type='button' ng-click='onClear(result)' value="C" class="formWidth fonts"></td>
+						<td colspan="2"><input type='button' ng-click='onReset(result)' value="RESET" class="formWidth fonts"></td>
+						<td><input type='button' ng-click='onEnterValue($event)' value="/" class="formWidth operators fonts"></td>
+					</tr>
+					<tr>
+						<td><input type='button' ng-click='onEnterValue($event)' value="7" class="formWidth fonts"></td>
+						<td><input type='button' ng-click='onEnterValue($event)' value="8" class="formWidth fonts"></td>
+						<td><input type='button' ng-click='onEnterValue($event)' value="9" class="formWidth fonts"></td>
+						<td><input type='button' ng-click='onEnterValue($event)' value="*" class="formWidth fonts operators"></td>
+					</tr>
+					<tr>
+						<td><input type='button' ng-click='onEnterValue($event)' value="4" class="formWidth fonts"></td>
+						<td><input type='button' ng-click='onEnterValue($event)' value="5" class="formWidth fonts"></td>
+						<td><input type='button' ng-click='onEnterValue($event)' value="6" class="formWidth fonts"></td>
+						<td><input type='button' ng-click='onEnterValue($event)' value="-" class="formWidth fonts operators"></td>
+					</tr>
+					<tr>
+						<td><input type='button' ng-click='onEnterValue($event)' value="1" class="formWidth fonts"></td>
+						<td><input type='button' ng-click='onEnterValue($event)' value="2" class="formWidth fonts"></td>
+						<td><input type='button' ng-click='onEnterValue($event)' value="3" class="formWidth fonts"></td>
+						<td><input type='button' ng-click='onEnterValue($event)' value="+" class="formWidth fonts operators"></td>
+					</tr>
+					<tr>
+						<td colspan="2"><input type='button' ng-click='onEnterValue($event)' value="0" class="formWidth fonts"></td>
+						<td><input type='button' ng-click='onEnterValue($event)' value="." class="formWidth fonts"></td>
+						<td><input type='button' ng-click='onEnterValue($event)' value="=" class="formWidth fonts operators"></td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</div>
+</body>
+</html>
