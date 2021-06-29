@@ -7,3 +7,5 @@ Users can also use the buttons provided in the calculator for calculations.
 
 The desktop view will provide last 5 calculations while the mobile view will provide last two calculation
 
+The calculator is accessible from https://priyankag048.github.io/calculator/calculator.html
+
